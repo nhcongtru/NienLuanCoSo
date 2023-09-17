@@ -33,14 +33,25 @@ function countFingers(landmarks) {
     const thumbTip = landmarks[4];
     const thumbIP = landmarks[3];
     const thumbCMC = landmarks[1];
-  
+    const wrist = landmarks[0];
+    const thumb = landmarks[4];
+    const pinky = landmarks[20];
+
     let fingerCount = 0;
   
     // Check if thumb is extended
 
-    if (thumbTip.x < thumbIP.x) {
-      fingerCount++;
+    if (wrist.x < thumb.x) {
+        if (thumbTip.x > thumbIP.x) {
+              fingerCount++;
+            }
+    } else if (wrist.x > thumb.x) {
+        if (thumbTip.x < thumbIP.x) {
+            fingerCount++;
+        }
     }
+
+    
   
     const fingerTips = [8, 12, 16, 20];
   
