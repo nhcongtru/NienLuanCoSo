@@ -51,8 +51,8 @@ function countFingers(landmarks) {
         }
     }
 
-    
-  
+
+
     const fingerTips = [8, 12, 16, 20];
   
     for (const tipIdx of fingerTips) {
@@ -86,9 +86,9 @@ function countFingers(landmarks) {
         drawLandmarks(canvasCtx, landmarks, { color: '#FF0000', lineWidth: 2 });
   
         const fingerCount = countFingers(landmarks);
-        canvasCtx.font = '48px Arial';
+        canvasCtx.font = '28px Arial';
         canvasCtx.fillStyle = '#FFFFFF';
-        canvasCtx.fillText(`Fingers: ${fingerCount}`, 10, 50);
+        canvasCtx.fillText(`Số Ngón Tay: ${fingerCount}`, 10, 50);
       }
     }
     canvasCtx.restore();
