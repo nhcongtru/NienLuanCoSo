@@ -7,15 +7,33 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
+  <style>
+    body {
+      background-color: rgb(212, 249, 249);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
+    .container {
+      position: relative;
+    }
+
+    .input_video {
+      width: 20%;
+      height: auto;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <video class="input_video" hidden></video>
-    <canvas class="output_canvas" width="640px" height="360px"></canvas>
+    <video class="input_video"></video>
+    <canvas class="output_canvas" width="960px" height="540px"></canvas>
   </div>
-
+  
   <script src="index.js"></script>
 </body>
 </html>
