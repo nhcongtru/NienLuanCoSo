@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
+  <title>Finger Counting</title>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js"
+    crossorigin="anonymous"></script>
   <style>
     body {
       background-color: rgb(212, 249, 249);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      position: relative;
     }
 
     .input_video {
       width: 20%;
       height: auto;
     }
+
+    h1 {
+      color: #007f8b;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <video class="input_video"></video>
-    <canvas class="output_canvas" width="960px" height="540px"></canvas>
-  </div>
-  <button onclick="toggleCamera(); toggleCanvas() ">Bật/Tắt</button>
-
+  <header>
+    <h1>Nhận diện đếm số ngón tay</h1>
+  </header>
+  <main>
+    <section>
+      <article>
+        <h2>Đếm số ngón tay thông qua ảnh</h2>
+        <p><b>Tải ảnh để bắt đầu</b></p>
+        <input type="file" id="inputImage" accept="image/*">
+        <div id="image-container" style="margin-top: 10px;">
+          <button onclick="deleteImage()" class="mdc-button mdc-button--raised">Ẩn/Hiện Ảnh</button>
+          <canvas class="can" id="outputCanvas" width="900px" height="500px" style="margin-top: 10px;"></canvas>
+        </div>
+      </article>
+      <article>
+        <h2>Đếm số ngón tay thông qua Webcam</h2>
+        <div class="container">
+          <button onclick="toggle()" class="mdc-button mdc-button--raised">Ẩn/Hiện Webcam</button>
+          <div style="position: relative;">
+            <video class="input_video"></video>
+            <canvas class="output_canvas" width="960px" height="540px"></canvas>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
   <script src="index.js"></script>
 </body>
+
 </html>
